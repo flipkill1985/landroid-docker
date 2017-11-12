@@ -1,5 +1,6 @@
 # landroid-docker
 Dockerfile for Landroid-S Worx Mower
+NPM From https://github.com/axelmohnen/fhem-landroid-s.git
 
 1. Clone git Repository
 2. Edit /data/LandroidConf.json with your Account Data
