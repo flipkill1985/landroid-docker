@@ -19,3 +19,4 @@ landroid:
   networks:
     - code-network
 ```
+# https://forum.fhem.de/index.php/topic,55053.0.html
