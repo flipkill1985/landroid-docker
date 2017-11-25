@@ -32,4 +32,4 @@ COPY /data/LandroidConf.json /opt/landroid/fhem-landroid-s/LandroidConf.json
 RUN cd /opt/landroid/fhem-landroid-s && \
     npm install iobroker.landroid-s
 
-CMD ["nodejs", "/opt/landroid/fhem-landroid-s/LandroidSrv10.js"]
+CMD ["nodejs", "/opt/landroid/fhem-landroid-s/LandroidSrv.js"]
