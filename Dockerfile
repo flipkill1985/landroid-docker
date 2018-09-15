@@ -1,5 +1,7 @@
-#FROM debian:jessie
+#FROM debian
 FROM ubuntu:16.04
+#FROM smartentry/ubuntu:16.04
+#FROM rastasheep/ubuntu-sshd:16.04
 
 MAINTAINER Jan Mohs <jan@mohs.es>
 
@@ -20,7 +22,9 @@ telnet \
 usbutils \
 libstdc++6 \
 npm \
-nodejs-legacy
+nodejs-legacy \
+net-tools \
+telnet
 
 RUN mkdir /opt/landroid && \
     chown root:root /opt/landroid && \
@@ -28,8 +32,11 @@ RUN mkdir /opt/landroid && \
     cd /opt/landroid && \
     git clone -b master https://github.com/axelmohnen/fhem-landroid-s.git
 COPY /data/LandroidConf.json /opt/landroid/fhem-landroid-s/LandroidConf.json
-    
+
 RUN cd /opt/landroid/fhem-landroid-s && \
     npm install iobroker.landroid-s
 
-CMD ["nodejs", "/opt/landroid/fhem-landroid-s/LandroidSrv.js"]
+#CMD ["nodejs", "/opt/landroid/fhem-landroid-s/LandroidSrv.js"]
+#CMD node /opt/landroid/fhem-landroid-s/LandroidSrv.js mower1
+ENTRYPOINT [ "nodejs",  "/opt/landroid/fhem-landroid-s/LandroidSrv.js" ]
+CMD [ "mower1" ]
