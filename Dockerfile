@@ -9,6 +9,10 @@ ENV Landroid Version 1.0
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
 
+RUN useradd --create-home -s /bin/bash landroid
+WORKDIR /home/landroid
+USER landroid
+
 #install dependencies
 
 RUN apt-get update && apt-get upgrade -y --force-yes && apt-get install -y --force-yes --no-install-recommends apt-utils
